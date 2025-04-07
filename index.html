@@ -117,6 +117,85 @@
             margin: 10px;
         }
 
+        /* New Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .carousel-slide {
+            position: relative;
+            display: none;
+            animation: fade 1.5s ease-in-out;
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(139,0,0,0.8), transparent);
+            color: white;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            color: #8B0000;
+            margin-top: 30px;
+            border-radius: 15px;
+        }
+
+        .contact-items {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: #FFD700;
+            color: #8B0000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+
+        footer {
+            background: #8B0000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 15px 15px 0 0;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -126,6 +205,9 @@
             }
             .cta-button {
                 width: 90%;
+            }
+            .carousel-image {
+                height: 250px;
             }
         }
     </style>
@@ -156,58 +238,80 @@
             <a href="#daftar" class="cta-button">DAFTAR SEKARANG</a>
         </div>
 
-        <!-- ... (kode sebelumnya tetap sama) -->
+        <!-- Carousel -->
+        <div class="carousel-container">
+            <h2 style="text-align: center;">Before/After</h2>
+ 
+            <div class="carousel-slide active">
+                <img src="asset/pexels-felixmittermeier-1459505.jpg" class="carousel-image" alt="Hasil Program">
+                <div class="carousel-overlay">
+                    <h3>Testimoni 1</h3>
+                    <p>Turun 4kg dalam 10 hari!</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="asset/pexels-joseph-costa-639863-1461264.jpg" class="carousel-image" alt="Komunitas">
+                <div class="carousel-overlay">
+                    <h3>Testimoni 2</h3>
+                    <p>Lingkar perut berkurang 7cm</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="asset/pexels-pixabay-433989.jpg" class="carousel-image" alt="Training">
+                <div class="carousel-overlay">
+                    <h3>Testimoni 3</h3>
+                    <p>Lebih berenergi dan percaya diri</p>
+                </div>
+            </div>
+        </div>
 
-<div class="section">
-    <h2>🔥 APA YANG AKAN KAMU DAPATKAN?</h2>
-    <div class="benefits-grid">
-        <div class="benefit-item">
-            <span class="icon">✅</span>
-            Panduan makan sehat harian
-        </div>
-        <div class="benefit-item">
-            <span class="icon">✅</span>
-            Support komunitas via WhatsApp/Telegram
-        </div>
-        <div class="benefit-item">
-            <span class="icon">✅</span>
-            Menu harian & contoh resep
-        </div>
-        <div class="benefit-item">
-            <span class="icon">✅</span>
-            Check-in harian untuk pantauan kemajuan
-        </div>
-        <div class="benefit-item">
-            <span class="icon">✅</span>
-            Tips mindset dan gaya hidup sehat
+        <div class="section">
+            <h2>🔥 APA YANG AKAN KAMU DAPATKAN?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    Panduan makan sehat harian
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    Support komunitas via WhatsApp/Telegram
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    Training special melalui zoom
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    Check-in harian untuk pantauan kemajuan
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">✅</span>
+                    Tips mindset dan gaya hidup sehat
+                </div>
+            </div>
         </div>
 
-    </div>
-</div>
-
-<div class="section">
-    <h2>🧍 SIAPA YANG BISA IKUT?</h2>
-    <div class="target-grid">
-        <div class="target-item">
-            <span class="icon">✅</span>
-            Kamu yang ingin menurunkan berat badan secara sehat
+        <div class="section">
+            <h2>🧍 SIAPA YANG BISA IKUT?</h2>
+            <div class="target-grid">
+                <div class="target-item">
+                    <span class="icon">✅</span>
+                    Kamu yang ingin menurunkan berat badan secara sehat
+                </div>
+                <div class="target-item">
+                    <span class="icon">✅</span>
+                    Kamu yang ingin mulai hidup sehat tapi bingung harus dari mana
+                </div>
+                <div class="target-item">
+                    <span class="icon">✅</span>
+                    Kamu yang butuh dukungan & komunitas positif
+                </div>
+                <div class="target-item">
+                    <span class="icon">✅</span>
+                    Pemula yang belum pernah ikut program diet
+                </div>
+            </div>
         </div>
-        <div class="target-item">
-            <span class="icon">✅</span>
-            Kamu yang ingin mulai hidup sehat tapi bingung harus dari mana
-        </div>
-        <div class="target-item">
-            <span class="icon">✅</span>
-            Kamu yang butuh dukungan & komunitas positif
-        </div>
-        <div class="target-item">
-            <span class="icon">✅</span>
-            Pemula yang belum pernah ikut program diet
-        </div>
-    </div>
-</div>
-
-<!-- ... (kode setelahnya tetap sama) -->
 
         <div class="section">
             <h2>📝 CARA DAFTAR</h2>
@@ -229,6 +333,43 @@
             <p>Raih versi terbaik dirimu hanya dalam 10 hari</p>
             <a href="#daftar" class="cta-button">DAFTAR SEKARANG</a>
         </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2>📞 BUTUH INFO LEBIH LANJUT?</h2>
+            <div class="contact-items">
+                <a href="https://bit.ly/coachlingga" class="contact-item">
+                    <span>📱</span>
+                    Coach Lingga
+                </a>
+                <a href="https://bit.ly/Coachdarmi" class="contact-item">
+                    <span>📱</span>
+                    Coach Darmi
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 MEGA SLIM CHALLENGE - Darling Team</p>
+        </footer>
     </div>
+
+    <script>
+        // Carousel Auto Slide
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("carousel-slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 5000);
+        }
+    </script>
 </body>
 </html>
