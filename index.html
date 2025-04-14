@@ -47,7 +47,7 @@
             padding: 30px;
             margin: 20px 0;
             border-radius: 10px;
-            color: #8B0000;
+            color: #4B0000;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
@@ -65,6 +65,7 @@
             background: #fff;
             border-radius: 8px;
             border: 2px solid #FFD700;
+            color: #4B0000;
         }
 
         .icon {
@@ -92,12 +93,20 @@
             border-radius: 50px;
             text-align: center;
             font-size: 1.2em;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.4s ease-in-out;
+            animation: pulse 2s infinite;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background-color: #ffe66d;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
         }
 
         .steps {
@@ -155,7 +164,7 @@
             text-align: center;
             padding: 40px 20px;
             background: rgba(255, 255, 255, 0.9);
-            color: #8B0000;
+            color: #4B0000;
             margin-top: 30px;
             border-radius: 15px;
         }
@@ -205,6 +214,12 @@
             .carousel-image {
                 height: 250px;
             }
+        }
+
+        /* Tambahan khusus untuk heading utama */
+        .section h2 {
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.6);
         }
     </style>
 </head>
