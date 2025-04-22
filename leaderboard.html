@@ -109,10 +109,6 @@
             <tr>
               <th>Rank</th>
               <th>Nama Peserta</th>
-              <th>Nutrisi (60)</th>
-              <th>Makan (40)</th>
-              <th>Olahraga (20)</th>
-              <th>Share (100)</th>
               <th>Total Poin</th>
             </tr>
           </thead>
@@ -144,10 +140,6 @@
 
           return {
             nama: p["Nama"],
-            nutrisi,
-            makan,
-            olahraga,
-            share,
             points: (nutrisi ? 60 : 0) + (makan ? 40 : 0) + (olahraga ? 20 : 0) + (share ? 100 : 0)
           };
         }).sort((a, b) => b.points - a.points);
@@ -158,10 +150,6 @@
             <tr>
               <td class="rank">${i + 1}</td>
               <td>${p.nama}</td>
-              <td>${p.nutrisi ? '✔️' : '❌'}</td>
-              <td>${p.makan ? '✔️' : '❌'}</td>
-              <td>${p.olahraga ? '✔️' : '❌'}</td>
-              <td>${p.share ? '✔️' : '❌'}</td>
               <td class="total-points">${p.points}</td>
             </tr>
           `;
