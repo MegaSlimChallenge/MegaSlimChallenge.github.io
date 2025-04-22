@@ -23,7 +23,7 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 20px 20px 80px;
     }
 
     header {
@@ -59,6 +59,7 @@
     .leaderboard-table th {
       background-color: #8B0000;
       color: #FFD700;
+      white-space: nowrap;
     }
 
     .leaderboard-table tr:hover {
@@ -74,6 +75,24 @@
       font-weight: bold;
       color: #8B0000;
     }
+
+    @media (max-width: 768px) {
+      .leaderboard-table th,
+      .leaderboard-table td {
+        padding: 10px 8px;
+        font-size: 0.9em;
+        white-space: nowrap;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .btn {
+        width: 90%;
+        font-size: 1em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -82,35 +101,34 @@
       <h1>LEADERBOARD<br><span style="color: #FFD700;">10 DAY BASIC CHALLENGE</span></h1>
     </header>
 
-
-    
     <div class="section">
       <h2 class="text-center mb-4">🏆 Peringkat Peserta</h2>
-      <table class="leaderboard-table">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Nama Peserta</th>
-            <th>Nutrisi (60)</th>
-            <th>Makan (40)</th>
-            <th>Olahraga (20)</th>
-            <th>Share (100)</th>
-            <th>Total Poin</th>
-          </tr>
-        </thead>
-        <tbody id="leaderboard-body">
-          <!-- Data akan diisi via JavaScript -->
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Nama Peserta</th>
+              <th>Nutrisi (60)</th>
+              <th>Makan (40)</th>
+              <th>Olahraga (20)</th>
+              <th>Share (100)</th>
+              <th>Total Poin</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <!-- Data via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="text-center mt-4 mb-5">
+      <a href="index.html" class="btn btn-warning text-dark fw-bold px-4 py-2 rounded-pill" style="font-size: 1.1em;">
+        🔙 Kembali ke Halaman Utama
+      </a>
     </div>
   </div>
-
-  <div class="text-center mt-4 mb-5">
-    <a href="index.html" class="btn btn-warning text-dark fw-bold px-4 py-2 rounded-pill" style="font-size: 1.1em;">
-      🔙 Kembali ke Halaman Utama
-    </a>
-  </div>
-  
 
   <script>
     const url = 'https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 1';
