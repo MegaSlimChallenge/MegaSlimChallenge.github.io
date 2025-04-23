@@ -127,23 +127,40 @@
   </div>
 
   <script>
-    const url = 'https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 1';
-
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        const leaderboard = data.map(p => {
-          const nutrisi = p["Minum Nutrisi Herbalife\n(Foto sedang minum produk Herbalife)"]?.startsWith("http");
-          const makan = p["Makan Lengkap Sehat (harus mengandung karbohidrat, protein, dan serat)\n(Foto menu makanan lengkapmu)"]?.startsWith("http");
-          const olahraga = p["Olahraga\n(Foto aktivitas olahraga hari ini)"]?.startsWith("http");
-          const share = p["Share di Media Sosial\n(Screenshot postingan kamu di media sosial)"]?.startsWith("http");
-
-          return {
-            nama: p["Nama"],
-            points: (nutrisi ? 60 : 0) + (makan ? 40 : 0) + (olahraga ? 20 : 0) + (share ? 100 : 0)
-          };
-        }).sort((a, b) => b.points - a.points);
-
+    const sheetId = '1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ';
+    const urls = [
+      `https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 1`,
+      `https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 2`
+    ];
+  
+    function calculatePoints(row) {
+      const nutrisi = row["Minum Nutrisi Herbalife\n(Foto sedang minum produk Herbalife)"]?.startsWith("http");
+      const makan = row["Makan Lengkap Sehat (harus mengandung karbohidrat, protein, dan serat)\n(Foto menu makanan lengkapmu)"]?.startsWith("http");
+      const olahraga = row["Olahraga\n(Foto aktivitas olahraga hari ini)"]?.startsWith("http");
+      const share = row["Share di Media Sosial\n(Screenshot postingan kamu di media sosial)"]?.startsWith("http");
+      return (nutrisi ? 60 : 0) + (makan ? 40 : 0) + (olahraga ? 20 : 0) + (share ? 100 : 0);
+    }
+  
+    Promise.all(urls.map(url => fetch(url).then(res => res.json())))
+      .then(([day1, day2]) => {
+        const totalMap = new Map();
+  
+        const addPoints = (rows) => {
+          rows.forEach(row => {
+            const nama = row["Nama"];
+            const point = calculatePoints(row);
+            const current = totalMap.get(nama) || 0;
+            totalMap.set(nama, current + point);
+          });
+        };
+  
+        addPoints(day1);
+        addPoints(day2);
+  
+        const leaderboard = Array.from(totalMap.entries())
+          .map(([nama, points]) => ({ nama, points }))
+          .sort((a, b) => b.points - a.points);
+  
         const tbody = document.getElementById('leaderboard-body');
         leaderboard.forEach((p, i) => {
           tbody.innerHTML += `
@@ -159,5 +176,6 @@
         console.error('Gagal memuat data:', err);
       });
   </script>
+  
 </body>
 </html>
