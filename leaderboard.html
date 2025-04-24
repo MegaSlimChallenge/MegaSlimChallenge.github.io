@@ -143,7 +143,7 @@
     }
   
     Promise.all(urls.map(url => fetch(url).then(res => res.json())))
-      .then(([day1, day2]) => {
+      .then(([day1, day2, day3]) => {
         const totalMap = new Map();
   
         const addPoints = (rows) => {
@@ -157,6 +157,7 @@
   
         addPoints(day1);
         addPoints(day2);
+        addPoints(day3);
   
         const leaderboard = Array.from(totalMap.entries())
           .map(([nama, points]) => ({ nama, points }))
