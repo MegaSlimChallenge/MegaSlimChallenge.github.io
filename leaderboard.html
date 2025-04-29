@@ -135,7 +135,8 @@
       `https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 4`,
       `https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 5`,
       `https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 6`,
-      `https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 7`
+      `https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 7`,
+      `https://opensheet.elk.sh/1k59Ps-JiI4qEjNrPXTZpXdzT4qjpcTyfLTU6jRR_snQ/Day 8`
     ];
   
     function calculatePoints(row) {
@@ -147,7 +148,7 @@
     }
   
     Promise.all(urls.map(url => fetch(url).then(res => res.json())))
-      .then(([day1, day2, day3, day4, day5, day6, day7]) => {
+      .then(([day1, day2, day3, day4, day5, day6, day7, day8]) => {
         const totalMap = new Map();
   
         const addPoints = (rows) => {
@@ -166,6 +167,7 @@
         addPoints(day5);
         addPoints(day6);
         addPoints(day7);
+        addPoints(day8);
   
         const leaderboard = Array.from(totalMap.entries())
           .map(([nama, points]) => ({ nama, points }))
